@@ -3,6 +3,7 @@ package com.realtomjoney.pixels_and_dps
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.DisplayMetrics
+import android.util.TypedValue
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.realtomjoney.pixels_and_dps.databinding.ActivityMainBinding
 
@@ -24,6 +25,14 @@ class MainActivity : AppCompatActivity() {
         params.height = w.toInt()
 
 
+    }
+
+    fun makePixels(dps: Int): Int {
+        val pixels = TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP,
+            dps.toFloat(),
+            resources.displayMetrics)
+        return pixels.toInt();
     }
 
     private fun setBindings() {
